@@ -1,5 +1,6 @@
 import json
 import requests
+import sp_api.base.helpers
 from botocore.awsrequest import AWSRequest
 from botocore.auth import SigV4Auth
 from botocore.credentials import ReadOnlyCredentials
@@ -34,13 +35,17 @@ token_r = requests.post(token_url, data=token_data)
 token = json.loads(token_r.text)['access_token']
 
 # Step 2: Prepare and Sign the Request for A+ Content
-method = 'GET'
+method = 'POST'
 host = 'sellingpartnerapi-na.amazon.com'
-uri = '/aplus/2020-11-01/contentDocuments'  # Update to target the searchContentDocuments operation
+uri = '/uploads/2020-11-01/uploadDestinations/aplus/2020-11-01/contentDocuments'  # Update to target the searchContentDocuments operation
+image_path = "C:/Users/willb/Desktop/example_logo.png"
 
 # Update parameters as needed for the specific A+ Content request
 params = {
-    'marketplaceId': os.getenv('MARKETPLACE_ID'),
+    'marketplaceIds': os.getenv('MARKETPLACE_ID'),
+    'contentMD5': sp_api.base.helpers.create_md5(image_path),
+    'resource': "aplus/2020-11-01/contentDocuments",
+    'contentType': "image/png"
 }
 
 endpoint = f'https://{host}{uri}'
@@ -59,7 +64,7 @@ response = requests.request(
 )
 
 # Step 4: Handle the Response
-if response.status_code == 200:
+if response.status_code == 201:
     print("Successfully accessed the A+ Content!")
     #print("Response details:")
     #print(json.dumps(response.json(), indent=4))
