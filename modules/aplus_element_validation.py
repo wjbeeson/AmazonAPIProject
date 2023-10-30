@@ -12,7 +12,7 @@ class ElementValidation(ABC):
         self.required = None
 
     @abstractmethod
-    def validate_values(self, name):
+    def validate_values(self, name, value):
         pass
 
 
@@ -29,7 +29,9 @@ class TextElementValidation(ElementValidation):
         self.max_length = max_length
         self.required = required
 
-    def validate_values(self, name, text_string=None):
+    # for images, the value is a text string
+    def validate_values(self, name, value):
+        text_string = value
         if text_string is None:
             raise Exception(f"{name} text string must have a value.")
         if len(text_string) > self.max_length:
@@ -37,7 +39,7 @@ class TextElementValidation(ElementValidation):
 
 
 class BulletElementValidation(ElementValidation):
-    def validate_values(self, name):
+    def validate_values(self, name, value):
         pass
 
 
@@ -47,7 +49,9 @@ class ImageElementValidation(ElementValidation):
         self.min_resolution = min_resolution
         self.required = required
 
-    def validate_values(self, name, image_path=None):
+    # for images, the value is an image path
+    def validate_values(self, name, value):
+        image_path = value
         if image_path is None:
             raise Exception(f"Image Path must have a value.")
         if not os.path.isfile(image_path):

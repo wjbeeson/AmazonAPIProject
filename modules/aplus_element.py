@@ -8,11 +8,9 @@ class APlusElement(ABC):
 
     def __init__(self, name: object, validation: ElementValidation):
         self.name = name
-        self.values = None
+        self.value = None
         self.validation = validation
 
-
-    def add_values(self, values: list):
-        self.validation.validate_values(values)
-
+    def validate_values(self):
+        self.validation.validate_values(name=self.name, value=self.value)
 

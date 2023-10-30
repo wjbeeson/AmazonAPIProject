@@ -4,6 +4,7 @@ from modules.aplus_element_validation import *
 from modules.aplus_element import APlusElement
 
 
+# noinspection PyTypeChecker
 class StandardImageSidebar(APlusModule):
     def __init__(self):
         super().__init__()
