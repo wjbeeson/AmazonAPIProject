@@ -8,6 +8,8 @@ import sp_api.api.upload
 import sp_api.base.helpers
 from dotenv import load_dotenv
 
+from modules.standard_image_sidebar import StandardImageSidebar
+import modules
 
 class AplusContentManager:
     def __init__(self):
@@ -248,8 +250,13 @@ class AplusContentManager:
         return response_draft, response_approval
 
 
+pass
+module = modules.standard_image_sidebar.StandardImageSidebar()
+module.add_values()
+pass
 user_asin_code = 'B0CJ3FY6S3'
 manager = AplusContentManager()
+module.headlines.add_values({0:"Hello", 1:"There"})
 pass
 # upload_destination_id = manager._upload_image_for_aplus_content(image_path="C:\\Users\\willb\\Desktop\\example_logo.png")
 content_doc = manager.get_aplus_content_doc(user_asin_code)
