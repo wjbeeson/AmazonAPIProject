@@ -14,7 +14,7 @@ class ModuleValues:
         self.subheadings = None
         self.body_texts = None
         self.bullet_lists = None
-        self.image_ids = None
+        self.image_paths = None
         self.alt_texts = None
         self.captions = None
         self.example_empty = None
@@ -40,9 +40,9 @@ class ModuleValues:
                 self.bullet_lists[i] = value
 
         if image_ids is not None:
-            self.image_ids = {}
+            self.image_paths = {}
             for i, value in enumerate(image_ids):
-                self.image_ids[i] = value
+                self.image_paths[i] = value
 
         if alt_texts is not None:
             self.alt_texts = {}
@@ -60,4 +60,23 @@ class ModuleValues:
                 self.example_empty[i] = value
 
 
-pass
+    def get_dict(self):
+        result_dict = {}
+        if self.headings is not None:
+            result_dict['headings'] = self.headings
+        if self.subheadings is not None:
+            result_dict['subheadings'] = self.subheadings
+        if self.body_texts is not None:
+            result_dict['body_texts'] = self.body_texts
+        if self.bullet_lists is not None:
+            result_dict['bullet_lists'] = self.bullet_lists
+        if self.image_paths is not None:
+            result_dict['image_paths'] = self.image_paths
+        if self.alt_texts is not None:
+            result_dict['alt_texts'] = self.alt_texts
+        if self.captions is not None:
+            result_dict['captions'] = self.captions
+        if self.example_empty is not None:
+            result_dict['example_empty'] = self.example_empty
+
+        return result_dict

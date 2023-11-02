@@ -6,6 +6,9 @@ from modules.module_values import ModuleValues
 from modules.custom_content_doc import CustomContentDocument
 import modules
 
+from modules.generate_requirements_admin_file import *
+pass
+
 module_sidebar = modules.standard_image_sidebar.StandardImageSidebar()
 user_values_sidebar = ModuleValues(
     headlines=["Headline 1", "Headline 2"],

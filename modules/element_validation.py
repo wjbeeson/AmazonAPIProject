@@ -15,7 +15,7 @@ class ElementValidation(ABC):
     def validate_values(self, name, value):
         pass
 
-    def get_requirement_dict(self):
+
 
 
 class ImageResolution():
@@ -63,10 +63,11 @@ class BulletElementValidation(ElementValidation):
 
 
 class ImageElementValidation(ElementValidation):
-    def __init__(self, min_resolution: ImageResolution, required=True):
+    def __init__(self, min_resolution: ImageResolution, image_position=None, required=True):
         super().__init__()
         self.min_resolution = min_resolution
         self.required = required
+        self.image_position = image_position
 
     # for images, the value is an image path
     def validate_values(self, name, value):

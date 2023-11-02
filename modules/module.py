@@ -32,7 +32,7 @@ class Module():
             self.bullet_lists.value = module_values.bullet_lists
 
         if self.image_paths is not None:
-            self.image_paths.value = module_values.image_ids
+            self.image_paths.value = module_values.image_paths
 
         if self.alt_texts is not None:
             self.alt_texts.value = module_values.alt_texts
@@ -78,3 +78,38 @@ class Module():
 
     def _generate_json(self):
         pass
+
+    def generate_requirements(self):
+        module_requirements = {}
+        if self.headlines is not None:
+            element_requirements = self.headlines.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.subheadings is not None:
+            element_requirements = self.subheadings.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.body_texts is not None:
+            element_requirements = self.body_texts.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.bullet_lists is not None:
+            element_requirements = self.bullet_lists.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.image_paths is not None:
+            element_requirements = self.image_paths.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.alt_texts is not None:
+            element_requirements = self.alt_texts.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.captions is not None:
+            element_requirements = self.captions.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+
+        if self.example_empty is not None:
+            element_requirements = self.example_empty.get_requirement_dict()
+            module_requirements[element_requirements['element_name']] = element_requirements
+        return module_requirements
