@@ -6,10 +6,12 @@ class Module():
         self.subheadings = None
         self.body_texts = None
         self.bullet_lists = None
-        self.image_ids = None
+        self.image_paths = None
         self.alt_texts = None
         self.captions = None
         self.example_empty = None
+
+        self.module_dict = {}
 
     def print_fields(self):
         fields = self.__dict__
@@ -29,8 +31,8 @@ class Module():
         if self.bullet_lists is not None:
             self.bullet_lists.value = module_values.bullet_lists
 
-        if self.image_ids is not None:
-            self.image_ids.value = module_values.image_ids
+        if self.image_paths is not None:
+            self.image_paths.value = module_values.image_ids
 
         if self.alt_texts is not None:
             self.alt_texts.value = module_values.alt_texts
@@ -42,6 +44,7 @@ class Module():
             self.example_empty.value = module_values.example_empty
 
         self._validate_values()
+        self._generate_json()
 
     def _validate_values(self):
         if self.headlines is not None:
@@ -55,9 +58,14 @@ class Module():
 
         if self.bullet_lists is not None:
             self.bullet_lists.validate_values()
+            for i, bullet_list in enumerate(self.bullet_lists.value.values()):
+                text_list = []
+                for j, point in enumerate(bullet_list):
+                    text_list.append({'position': j + 1, 'text': {'value': point, 'decoratorSet': []}})
+                self.bullet_lists.value[i] = text_list
 
-        if self.image_ids is not None:
-            self.image_ids.validate_values()
+        if self.image_paths is not None:
+            self.image_paths.validate_values()
 
         if self.alt_texts is not None:
             self.alt_texts.validate_values()
@@ -67,3 +75,6 @@ class Module():
 
         if self.example_empty is not None:
             self.example_empty.validate_values()
+
+    def _generate_json(self):
+        pass

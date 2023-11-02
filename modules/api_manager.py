@@ -179,6 +179,8 @@ class ApiManager:
             print("Failed to upload Image.")
             print(response.text)
         return upload_destination_id
+    def get_image_upload_link(self, image_path):
+        return self._upload_image_for_aplus_content(image_path)
 
     def get_aplus_content_doc(self, asin_code):
         # Step 1: Request Access Token
