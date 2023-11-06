@@ -1,6 +1,5 @@
-from abc import ABC, abstractmethod
-from modules.element_validation import ElementValidation
-from modules.element_validation import ImageResolution
+from abc import ABC
+from module.element_validation import ElementValidation
 
 
 class Element(ABC):

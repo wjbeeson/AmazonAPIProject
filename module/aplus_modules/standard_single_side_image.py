@@ -1,10 +1,7 @@
-import json
-
-from modules.module import Module
-from modules.element_validation import ElementValidation
-from modules.element_validation import *
-from modules.element import Element
-from modules.api_manager import ApiManager
+from module.module import Module
+from module.element_validation import *
+from module.element import Element
+from utility.api_manager import ApiManager
 
 
 # noinspection PyTypeChecker

@@ -1,0 +1,1 @@
+__all__ = ['standard_company_logo', 'standard_four_image_text', 'standard_image_sidebar','standard_single_image_and_specs','standard_single_side_image']

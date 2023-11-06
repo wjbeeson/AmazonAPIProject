@@ -4,18 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aadc1b0b-514a-47de-a451-87cc4130e47b" name="Changes" comment="bullet points implemented">
-      <change afterPath="$PROJECT_DIR$/upload_image_aplus_media.py" afterDir="false" />
+    <list default="true" id="aadc1b0b-514a-47de-a451-87cc4130e47b" name="Changes" comment="whole system functional. APlus content can be uploaded to entirely new Asin">
+      <change afterPath="$PROJECT_DIR$/module/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module/aplus_modules/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utility/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/key_map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/env/key_map.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/api_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/api_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/element_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/element_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/module.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/module_values.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/module_values.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/read_input_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/read_input_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/standard_company_logo.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/standard_company_logo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/standard_image_sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/standard_image_sidebar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/api_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/api_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/custom_content_doc.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/custom_content_doc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/element.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/element.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/element_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/element_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/generate_requirements_admin_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/generate_requirements_admin_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/module_values.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/module_values.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/read_input_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/utility/read_input_json.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/standard_company_logo.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/aplus_modules/standard_company_logo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/standard_four_image_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/aplus_modules/standard_four_image_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/standard_image_sidebar.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/aplus_modules/standard_image_sidebar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/standard_single_image_and_specs.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/aplus_modules/standard_single_image_and_specs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/standard_single_side_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/module/aplus_modules/standard_single_side_image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload_image_aplus_media.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +92,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\utility" />
       <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject" />
-      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\modules" />
-      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\env" />
+      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\module" />
+      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\module\aplus_modules" />
+      <recent name="C:\Users\willb\PycharmProjects\amazonAPIProject\modules\code_files" />
     </key>
   </component>
   <component name="RunManager">
@@ -192,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698944018294</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="whole system functional. APlus content can be uploaded to entirely new Asin">
+      <option name="closed" value="true" />
+      <created>1699291599895</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699291599895</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,23 +232,14 @@
     <MESSAGE value="validation" />
     <MESSAGE value="console input for sidebar complete" />
     <MESSAGE value="bullet points implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="bullet points implemented" />
+    <MESSAGE value="whole system functional. APlus content can be uploaded to entirely new Asin" />
+    <option name="LAST_COMMIT_MESSAGE" value="whole system functional. APlus content can be uploaded to entirely new Asin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/modules/generate_requirements_admin_file.py</url>
+          <url>file://$PROJECT_DIR$/module/generate_requirements_admin_file.py</url>
           <line>45</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
@@ -244,12 +254,12 @@
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/modules/api_manager.py</url>
+          <url>file://$PROJECT_DIR$/utility/api_manager.py</url>
           <line>122</line>
           <option name="timeStamp" value="205" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/modules/api_manager.py</url>
+          <url>file://$PROJECT_DIR$/utility/api_manager.py</url>
           <line>92</line>
           <option name="timeStamp" value="206" />
         </line-breakpoint>

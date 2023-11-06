@@ -1,9 +1,8 @@
 import json
-import os
-from modules.standard_company_logo import StandardImageLogo
-from modules.standard_image_sidebar import StandardImageSidebar
-from modules.module import Module
-from modules.module_values import ModuleValues
+from module.aplus_modules.standard_company_logo import StandardImageLogo
+from module.aplus_modules.standard_image_sidebar import StandardImageSidebar
+from module.module import Module
+from module.module_values import ModuleValues
 
 
 class JsonInputReader():
@@ -19,9 +18,9 @@ class JsonInputReader():
             file_dict = json.load(fp)
         modules = []
 
-        # convert input into aplus modules
-        for i, module in enumerate(file_dict['modules'].values()):
-            new_module: Module = self.type_dict[list(module.keys())[0]]()
-            new_module.add_values(ModuleValues.from_dictionary(list(module.values())[0]))
+        # convert input into aplus module
+        for i, module_input in enumerate(file_dict['modules'].values()):
+            new_module: Module = self.type_dict[list(module_input.keys())[0]]()
+            new_module.add_values(ModuleValues.from_dictionary(list(module_input.values())[0]))
             modules.append(new_module)
         return file_dict['asin'], file_dict['product_name'], modules

@@ -1,6 +1,5 @@
-from modules.module_values import ModuleValues
-from modules.element import Element
-from modules.api_manager import ApiManager
+from module.module_values import ModuleValues
+from utility.api_manager import ApiManager
 class Module():
     def __init__(self):
         self.headlines = None

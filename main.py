@@ -1,15 +1,15 @@
-from modules.generate_requirements_admin_file import *
-from modules.read_input_json import JsonInputReader
+from utility.read_input_json import JsonInputReader
+from utility.custom_content_doc import CustomContentDocument
+from utility.api_manager import ApiManager
 
 filename = "C:\\Users\\willb\\Downloads\\Telegram Desktop\\test_input_ B0CMBBC34Y (1).json"
-
 (asin, product_name, module_list) = JsonInputReader().parse_json_into_input(filename)
 custom_content_doc = CustomContentDocument(module_list, product_name)
 response_draft, response_approval = ApiManager().update_aplus_content_doc(asin, custom_content_doc.assembled_dict)
 pass
 
 '''
-module_sidebar = modules.standard_image_sidebar.StandardImageSidebar()
+module_sidebar = module.standard_image_sidebar.StandardImageSidebar()
 user_values_sidebar = ModuleValues(
     headlines=["Headline 1", "Headline 2"],
     subheadings=["Subheading 1"],
@@ -19,7 +19,7 @@ user_values_sidebar = ModuleValues(
     alt_texts=["Alt Text 1", "Alt Text 2"],
     captions=["Caption 1", "Caption 2"]
 )
-module_logo = modules.standard_company_logo.StandardImageLogo()
+module_logo = module.standard_company_logo.StandardImageLogo()
 user_values_logo = ModuleValues(
     image_ids=["C:\\Users\\willb\\Desktop\\modern-purple-gradient-background-with-sporty-design-cool-gaming-concept-banner-presentation-social-media-certificate-brochure-eps10-vector.jpg"],
     alt_texts=["BOXWAVE Company Logo"]

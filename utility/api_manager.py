@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 class ApiManager:
     def __init__(self):
         # Setup Environment
-        dotenv_path = Path('env/.env')
+        dotenv_path = Path('./env/.env')
         load_dotenv(dotenv_path=dotenv_path)
 
         self.default_marketplace_id = os.environ['MARKETPLACE_ID']
@@ -26,7 +26,7 @@ class ApiManager:
         self.aws_secret_key = os.getenv('AWS_SECRET_KEY')
         self.aws_region = 'us-east-1'
         self.service = 'execute-api'
-        self.key_map_path = "env/key_map.txt"
+        self.key_map_path = "./env/key_map.txt"
         self.temp_image_path = "temp_image.png"
         self.key_map = self._load_asin_map()
 

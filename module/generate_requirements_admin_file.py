@@ -1,10 +1,7 @@
-from modules.api_manager import ApiManager
+import module.aplus_modules.standard_image_sidebar
+from module import *
+from utility import *
 
-from modules.standard_image_sidebar import StandardImageSidebar
-from modules.standard_company_logo import StandardImageLogo
-from modules.module_values import ModuleValues
-from modules.custom_content_doc import CustomContentDocument
-import modules
 import json
 
 def generate_requirements_file():
@@ -36,11 +33,11 @@ def generate_test_input_file():
     info = {}
     info['asin'] = user_asin_code
     info['product_name'] = product_name
-    info['modules'] = {}
-    info['modules'][0] = {}
-    info['modules'][0]['standard_company_logo'] = user_values_logo.get_dict()
-    info['modules'][1] = {}
-    info['modules'][1]['standard_image_sidebar'] = user_values_sidebar.get_dict()
+    info['module'] = {}
+    info['module'][0] = {}
+    info['module'][0]['standard_company_logo'] = user_values_logo.get_dict()
+    info['module'][1] = {}
+    info['module'][1]['standard_image_sidebar'] = user_values_sidebar.get_dict()
     with open('test_input.json', 'w') as fp:
         json.dump(info, fp)
     pass

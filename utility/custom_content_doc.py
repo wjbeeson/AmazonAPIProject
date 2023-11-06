@@ -1,6 +1,3 @@
-from modules.module import Module
-
-
 class CustomContentDocument:
     def __init__(self, module_list: list, name):
         content_module_list = []
