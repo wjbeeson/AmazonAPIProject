@@ -64,19 +64,19 @@ class StandardImageSidebar(Module):
 
     def _generate_json(self):
         manager = ApiManager()
+        image_1 = manager.get_image_from_destination_id(self.image_paths.value[0])
+        image_2 = manager.get_image_from_destination_id(self.image_paths.value[1])
         format_dict = {'contentModuleType': 'STANDARD_IMAGE_SIDEBAR', 'standardCompanyLogo': None,
                        'standardComparisonTable': None, 'standardFourImageText': None,
                        'standardFourImageTextQuadrant': None, 'standardHeaderImageText': None,
                        'standardImageSidebar': {'headline': {'value': self.headlines.value[0], 'decoratorSet': []},
                                                 'imageCaptionBlock': {'image': {
-                                                    'uploadDestinationId': manager.get_image_upload_link(
-                                                        self.image_paths.value[0]),
+                                                    'uploadDestinationId': self.image_paths.value[0],
                                                     'imageCropSpecification': {
                                                         'size': {'width': {
-                                                            'value': Image.open(self.image_paths.value[0]).width,
+                                                            'value': image_1.width,
                                                             'units': 'pixels'},
-                                                                 'height': {'value': Image.open(
-                                                                     self.image_paths.value[0]).height,
+                                                                 'height': {'value': image_1.height,
                                                                             'units': 'pixels'}},
                                                         'offset': {'x': {'value': 0, 'units': 'pixels'},
                                                                    'y': {'value': 0, 'units': 'pixels'}}},
@@ -91,14 +91,12 @@ class StandardImageSidebar(Module):
                                                             {'value': self.body_texts.value[0], 'decoratorSet': []}]}},
                                                 'descriptionListBlock': {'textList': self.bullet_lists.value[0]},
                                                 'sidebarImageTextBlock': {'image': {
-                                                    'uploadDestinationId': manager.get_image_upload_link(
-                                                        self.image_paths.value[1]),
+                                                    'uploadDestinationId': self.image_paths.value[1],
                                                     'imageCropSpecification': {
                                                         'size': {'width': {
-                                                            'value': Image.open(self.image_paths.value[1]).width,
+                                                            'value': image_2.width,
                                                             'units': 'pixels'},
-                                                                 'height': {'value': Image.open(
-                                                                     self.image_paths.value[1]).height,
+                                                                 'height': {'value': image_2.height,
                                                                             'units': 'pixels'}},
                                                         'offset': {'x': {'value': 0, 'units': 'pixels'},
                                                                    'y': {'value': 0, 'units': 'pixels'}}},

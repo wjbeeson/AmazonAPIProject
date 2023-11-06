@@ -1,14 +1,14 @@
-from modules.api_manager import ApiManager
-
-from modules.standard_image_sidebar import StandardImageSidebar
-from modules.standard_company_logo import StandardImageLogo
-from modules.module_values import ModuleValues
-from modules.custom_content_doc import CustomContentDocument
-import modules
-
 from modules.generate_requirements_admin_file import *
+from modules.read_input_json import JsonInputReader
+
+filename = "C:\\Users\\willb\\Downloads\\Telegram Desktop\\test_input_ B0CMBBC34Y (1).json"
+
+(asin, product_name, module_list) = JsonInputReader().parse_json_into_input(filename)
+custom_content_doc = CustomContentDocument(module_list, product_name)
+response_draft, response_approval = ApiManager().update_aplus_content_doc(asin, custom_content_doc.assembled_dict)
 pass
 
+'''
 module_sidebar = modules.standard_image_sidebar.StandardImageSidebar()
 user_values_sidebar = ModuleValues(
     headlines=["Headline 1", "Headline 2"],
@@ -35,3 +35,4 @@ user_asin_code = 'B0CJ3FY6S3'
 content_doc = ApiManager().get_aplus_content_doc(user_asin_code)
 response_draft, response_approval = ApiManager().update_aplus_content_doc(user_asin_code, custom_content_doc.assembled_dict)
 pass
+'''

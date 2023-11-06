@@ -59,6 +59,66 @@ class ModuleValues:
             for i, value in enumerate(example_empty):
                 self.example_empty[i] = value
 
+    @classmethod
+    def from_dictionary(self, dict):
+        self.headings = None
+        self.subheadings = None
+        self.body_texts = None
+        self.bullet_lists = None
+        self.image_paths = None
+        self.alt_texts = None
+        self.captions = None
+        self.example_empty = None
+
+        headings = dict.get('headings')
+        if headings is not None:
+            self.headings = {}
+            for i, value in enumerate(list(headings.values())):
+                self.headings[i] = value
+
+        subheadings = dict.get('subheadings')
+        if subheadings is not None:
+            self.subheadings = {}
+            for i, value in enumerate(list(subheadings.values())):
+                self.subheadings[i] = value
+
+        body_texts = dict.get('body_texts')
+        if body_texts is not None:
+            self.body_texts = {}
+            for i, value in enumerate(list(body_texts.values())):
+                self.body_texts[i] = value
+
+        bullet_lists = dict.get('bullet_lists')
+        if bullet_lists is not None:
+            self.bullet_lists = {}
+            for i, value in enumerate(list(bullet_lists.values())):
+                self.bullet_lists[i] = value
+
+        image_paths = dict.get('image_paths')
+        if image_paths is not None:
+            self.image_paths = {}
+            for i, value in enumerate(list(image_paths.values())):
+                self.image_paths[i] = value
+
+        alt_texts = dict.get('alt_texts')
+        if alt_texts is not None:
+            self.alt_texts = {}
+            for i, value in enumerate(list(alt_texts.values())):
+                self.alt_texts[i] = value
+
+        captions = dict.get('captions')
+        if captions is not None:
+            self.captions = {}
+            for i, value in enumerate(list(captions.values())):
+                self.captions[i] = value
+
+        example_empty = dict.get('example_empty')
+        if example_empty is not None:
+            self.example_empty = {}
+            for i, value in enumerate(list(example_empty.values())):
+                self.example_empty[i] = value
+        return self
+
 
     def get_dict(self):
         result_dict = {}

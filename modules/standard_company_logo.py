@@ -6,6 +6,7 @@ from modules.element_validation import *
 from modules.element import Element
 from modules.api_manager import ApiManager
 from PIL import Image
+import cv2
 
 
 # noinspection PyTypeChecker
@@ -27,11 +28,9 @@ class StandardImageLogo(Module):
         )
 
     def _generate_json(self, ):
-        manager = ApiManager()
-        image_file = Image.open(self.image_paths.value[0])
-        image_link = manager.get_image_upload_link(self.image_paths.value[0])
+        image_file = ApiManager().get_image_from_destination_id(self.image_paths.value[0])
         format_dict = {'contentModuleType': 'STANDARD_COMPANY_LOGO', 'standardCompanyLogo': {
-            'companyLogo': {'uploadDestinationId': image_link, 'imageCropSpecification': {
+            'companyLogo': {'uploadDestinationId': self.image_paths.value[0], 'imageCropSpecification': {
                 'size': {'width': {'value': image_file.width, 'units': 'pixels'},
                          'height': {'value': image_file.height, 'units': 'pixels'}},
                 'offset': {'x': {'value': 0, 'units': 'pixels'}, 'y': {'value': 0, 'units': 'pixels'}}},

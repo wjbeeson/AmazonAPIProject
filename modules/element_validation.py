@@ -1,7 +1,9 @@
 import os.path
+import shutil
 from abc import ABC, abstractmethod
 
 import PIL.Image
+import requests
 from PIL import Image
 
 
@@ -77,7 +79,13 @@ class ImageElementValidation(ElementValidation):
         if image_path is None:
             raise Exception(f"Image Path must have a value.")
         if not os.path.isfile(image_path):
-            raise Exception(f"Invalid Image Path: {image_path}")
+            response = requests.get(image_path, stream=True)
+            if not response.status_code == 200:
+                raise Exception(f"Provided Image Path: [{image_path}] is neither a valid filepath or weblink. Please "
+                                f"check the location of the source.")
+            with open('temp_image.png', 'wb') as out_file:
+                shutil.copyfileobj(response.raw, out_file)
+            image_path = 'temp_image.png'
         try:
             image = PIL.Image.open(image_path)
         except:

@@ -1,5 +1,6 @@
 from modules.module_values import ModuleValues
 from modules.element import Element
+from modules.api_manager import ApiManager
 class Module():
     def __init__(self):
         self.headlines = None
@@ -66,6 +67,14 @@ class Module():
 
         if self.image_paths is not None:
             self.image_paths.validate_values()
+        for i, image_path in enumerate(list(self.image_paths.value.values())):
+            destination_id = ""
+            if image_path.find('https://') != -1:
+                destination_id = ApiManager().get_image_upload_destination_id(image_path, is_web_request=True)
+            else:
+                destination_id = ApiManager().get_image_upload_destination_id(image_path)
+            self.image_paths.value[i] = destination_id
+        pass
 
         if self.alt_texts is not None:
             self.alt_texts.validate_values()
